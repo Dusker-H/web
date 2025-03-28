@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <p class="important"><a href="/vuln?param=<script>alert(1)</script>">vuln(xss) page</a></p>
+  <p class="important"><a href="/memo?memo=hello">memo</a></p>
+  <p class="important"><a href="/flag">flag</a></p>
+  <div class="center-container">
+    <a href="/home/dusker/web/deploy/static/image.jpg"><img class="img" src="/home/dusker/web/deploy/static/image.jpg" alt="Centered Image"></a>
+  </div>
+{% endblock %}
+
+<style>
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 높이를 100%로 설정 */
+  }
+  .img {
+    max-width: 100%;
+    height: auto; /* 이미지 비율 유지 */
+  }
+</style>
